@@ -1,0 +1,85 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 12px;
+  font-size: 0.4rem;
+  background: #fff;
+  font-family: arial;
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+i,
+em {
+  font-style: normal
+}
+
+img {
+  border: none;
+}
+
+input {
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
