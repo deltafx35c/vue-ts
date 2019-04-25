@@ -1,4 +1,22 @@
-# vue-ts
+# vue-ts 基于vue和typescript编写的后台管理程序demo
+
+![截图](./intro.gif)
+
+## 实现功能
+
+- 网站搭建 
+- 基本配置/目录结构
+- UI库引入[element-ui] &radic;  
+- http库引入[axios] &radic; 
+- vuex使用[vuex-class] &radic; 
+- 报表[echarts] &radic; 
+- 分页 &radic; 
+- 表单封装 &radic; 
+- 文件导出 &times;  
+- 富文本编辑器 &times;  
+- 图片上传 &times;  
+- 剪切板功能 &times;  
+
 
 ## Project setup
 ```
