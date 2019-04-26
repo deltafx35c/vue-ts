@@ -6,8 +6,8 @@
 
 ## 实现功能
 
-- 网站搭建 
-- 基本配置/目录结构
+- 网站搭建 &radic;  
+- 基本配置/目录结构 &radic;  
 - UI库引入[element-ui] &radic;  
 - http库引入[axios] &radic; 
 - vuex使用[vuex-class] &radic; 
