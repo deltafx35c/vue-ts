@@ -1,5 +1,9 @@
 export * from './state';
 
+export type helloFunc = (x: string)  => void;
+
+export type openLoginPopFunc = ()  => Promise<any>;
+
 export interface TableRow {
   date: string;
   name: string;
@@ -20,9 +24,9 @@ export interface QueryForm {
 export interface User {
   name: string;
   password: string;
-  hello?: (x: string) => void;
+  hello?: helloFunc;
   dialogVisible?: boolean;
-  openLoginPop?: () => Promise<object>;
+  openLoginPop?: openLoginPopFunc;
 }
 
 export interface PromiseHandle {
