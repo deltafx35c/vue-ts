@@ -90,10 +90,6 @@
 * 创建实例
 * 拦截器
 
-#  _练一练_
-* 参考[说明文档](http://10.40.3.32/frontend/publishDocument/blob/master/README/mlp.rongzi.com.md)下载安装着陆页站点
-* 读懂任意一个着陆页源码 
-* 尝试开发一个新的着陆页
 
 #  服务端渲染
 
