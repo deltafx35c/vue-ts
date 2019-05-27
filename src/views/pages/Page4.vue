@@ -1,30 +1,25 @@
 <template>
-  <div id="page4">
+    <div id="page4">
     <div id="page4-report"></div>
-    <el-table :data="tableData" stripe border >
-      <el-table-column prop="date" label="日期" sortable width="140">
-      </el-table-column>
-      <el-table-column prop="name" label="姓名" sortable width="120">
-      </el-table-column>
-      <el-table-column prop="address" label="地址" sortable>
-      </el-table-column>
-    </el-table>
-  </div>
+        <el-table :data="tableData" stripe border >
+            <el-table-column type="index" width="55">
+            </el-table-column>
+            <el-table-column prop="date" label="日期" sortable width="240">
+            </el-table-column>
+            <el-table-column prop="count" label="站点数" sortable width="220">
+            </el-table-column>
+        </el-table>
+    </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { TableRow } from '@/types';
 import echarts, { ECharts } from 'echarts';
 import data from '@/mock/report-data1';
 
 @Component
 export default class Page4 extends Vue {
-  tableData: TableRow[] = Array(20).fill({
-    date: '2016-05-02',
-    name: '王虎',
-    address: '上海市普陀区金沙江路 1518 弄',
-  } as TableRow);
+  tableData: any[] = data.map((item) => ({date: item[0], count: item[1]}));
   mounted() {
     const el = document.getElementById('page4-report') as HTMLDivElement;
     const myChart = echarts.init(el);

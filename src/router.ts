@@ -15,6 +15,11 @@ export default new Router({
       redirect: 'login',
       children: [
         {
+          path: '/page0',
+          name: 'page0',
+          component: () => import('./views/pages/Page0.vue'),
+        },
+        {
           path: '/page1',
           name: 'page1',
           component: () => import('./views/pages/Page1.vue'),
@@ -33,6 +38,16 @@ export default new Router({
           path: '/page4',
           name: 'page4',
           component: () => import('./views/pages/Page4.vue'),
+        },
+        {
+          path: '/page5',
+          name: 'page5',
+          component: () => import('./views/pages/Page5.vue'),
+        },
+        {
+          path: '/page6',
+          name: 'page6',
+          component: () => import('./views/pages/Page6.vue'),
         },
       ],
     },
