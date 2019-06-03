@@ -8,21 +8,26 @@
   - 配置 /usr/local/nginx/conf/nginx.conf
   - 配置用例如下
 
-> upstream mp.rongzi.com {  
->   server 127.0.0.1:3001;  
-> }  
+> upstream api_server {
+>   server 127.0.0.1:3000;
+> }
 
-> server {  
->   listen       3000;
->   server_name  10.40.3.8;
->   location / {  
->     proxy_pass http://mp.rongzi.com;  
->     proxy_set_header Host $http_host;  
->     proxy_set_header X-Real-IP $remote_addr;  
->     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  
->     client_max_body_size 20m;  
->   }  
-> }  
+> server {
+>   listen       80;
+>   server_name  deltafx35c.com;
+>   location /api/ {
+>           proxy_pass http://api_server;
+>           proxy_redirect off;
+>           proxy_set_header X-Real-IP $remote_addr;
+>           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+>    client_max_body_size 20m;
+>   }
+>   location / {
+>    proxy_set_header Host $http_host;
+>    root   /www/vue/vue-ts/dist;
+>    try_files $uri $uri/ /index.html;
+>   }
+> }
 
 ## 安装git 
   - yum install -y git
@@ -49,7 +54,4 @@
   - n stable
   - n 切换到最新版本
   - node -v
-
-    
-
-
+  
