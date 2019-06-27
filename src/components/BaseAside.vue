@@ -51,11 +51,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class BaseHeader extends Vue {
-  token: string = ''
+  token: string = '';
 }
 </script>
 
