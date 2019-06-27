@@ -1,6 +1,8 @@
 # 1.创建种子项目
   我们可以选择：
   ## fork一份官方种子项目，在此基础上进行修改
+  [官方种子项目地址](https://github.com/vuejs-templates/webpack)
+  
   或者
   ## 自定义新建一个种子项目
 
