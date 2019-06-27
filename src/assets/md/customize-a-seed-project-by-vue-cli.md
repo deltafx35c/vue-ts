@@ -33,11 +33,11 @@
   - 示例：  
     ![截图](./images/helpers.png)  
 
-# 3.在项目源文件中嵌入模板变量和模板函数，使其成为模板文件
+# 3.改造模板文件
+  在项目源文件中嵌入模板变量和模板函数，使其成为模板文件  
   ![截图](./images/template.png)  
 
 # 4.部署与使用
 
-  ## 讲种子项目上传至github
-
-  ## 运行vue init username/repo my-project创建项目
+  将种子项目上传至github  
+  运行vue init username/repo my-project创建项目  

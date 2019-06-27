@@ -54,6 +54,11 @@ export default new Router({
           name: 'page7',
           component: () => import('./views/pages/Page7.vue'),
         },
+        {
+          path: '/page8',
+          name: 'page8',
+          component: () => import('./views/pages/Page8.vue'),
+        },
       ],
     },
     {

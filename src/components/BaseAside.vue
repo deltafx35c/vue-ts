@@ -41,7 +41,7 @@
           <router-link to="/page7">
             <el-menu-item index="3-3">文档三</el-menu-item>
           </router-link>
-          <router-link to="/page0">
+          <router-link to="/page8">
             <el-menu-item index="3-4">文档四</el-menu-item>
           </router-link>
         </el-menu-item-group>
@@ -51,11 +51,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component
 export default class BaseHeader extends Vue {
-  token: string = '';
+  token: string = ''
 }
 </script>
 
