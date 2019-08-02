@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>一个简单的聊天室</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="applicable-device" content="mobile">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport"
+    content="width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    li {
+      list-style: none
+    }
+
+    img {
+      vertical-align: top;
+      border: none
+    }
+
+    #app {
+      width: 420px;
+      margin: 120px auto;
+      padding: 20px;
+      border: 1px dotted #ccc;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .contents li {
+      margin-bottom: 20px;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    .name {
+      color: rebeccapurple;
+    }
+
+    .right .name {
+      color: red;
+    }
+
+    .send-box {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1>简单的聊天室</h1>
+    <section v-show="!isLogin">
+      <label>请输入你的姓名</label>
+      <input type="text" v-model="myName" />
+      <button class="submit" @click="submit">提交</button>
+    </section>
+    <ul class="contents" v-show="isLogin">
+      <li v-for="(item,index) in contents" :key="index" :class="{right: item.name == myName}">
+        <div v-if="item.name == myName">
+          <span>{{item.message}}</span>
+          <span class="name"> 我</span>
+        </div>
+        <div v-else>
+          <span class="name">{{item.name}}</span>
+          <span>{{item.message}}</span>
+        </div>
+      </li>
+    </ul>
+    <div class="send-box" v-show="isLogin">
+      <input type="text" v-model="message" />
+      <button class="send" @click="send">发送</button>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        ws: null,
+        myName: 'Guest',
+        isLogin: false,
+        senderName: 'Someone',
+        message: 'Say Something',
+        contents: []
+      },
+      mounted() {
+        window.onbeforeunload = () => {
+          this.ws.close()
+        }
+      },
+      methods: {
+        submit() {
+          this.ws = new WebSocket("ws://116.62.143.122/api/echo")
+          this.ws.onopen = (evt) => {
+            console.log("Connection open ...")
+            this.ws.send(JSON.stringify({
+              name: 'System',
+              message: this.myName + ' has joined this room'
+            }))
+          }
+          this.ws.onmessage = (evt) => {
+            console.log("Received Message: ", evt.data)
+            let msg = JSON.parse(JSON.stringify(evt.data))
+            this.contents.push(JSON.parse(msg))
+          }
+          this.ws.onclose = (evt) => {
+            this.ws.send(JSON.stringify({
+              name: 'System',
+              message: this.myName + ' has left this room'
+            }))
+            console.log("Connection closed.")
+          }
+          this.isLogin = true
+        },
+        send() {
+          this.ws.send(JSON.stringify({
+            name: this.myName,
+            message: this.message
+          }))
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
